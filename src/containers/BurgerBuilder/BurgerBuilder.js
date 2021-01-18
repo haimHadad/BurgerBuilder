@@ -89,7 +89,7 @@ class BurgerBuilder extends Component{
 
     purchaseContinueHandler = ()=>{
         /* alert('You continue'); */
-        this.setState({ loading:true });
+        /* this.setState({ loading:true });
         const order = {
             ingredients: this.state.ingredients,
             price: this.state.totalPrice,
@@ -110,7 +110,21 @@ class BurgerBuilder extends Component{
             })
             .catch(error => {
                 this.setState({loading:false, purchasing: false});
+            }); */
+            /* const myIng =  JSON.stringify(this.state.ingredients);
+            this.props.history.push('/checkout?start='+myIng); */
+
+            const queryParams = [];
+            for(let i in this.state.ingredients){
+                queryParams.push(encodeURIComponent(i) + '=' +encodeURIComponent(this.state.ingredients[i]));
+            }
+            const queryString = queryParams.join('&');
+            this.props.history.push({
+                pathname: '/checkout',
+                search: '?' + queryString
             });
+
+
     }
 
     render(){  
@@ -124,7 +138,10 @@ class BurgerBuilder extends Component{
         if(this.state.ingredients){
             burger = (
                 <Aux>
-                    <Burger ingredients={this.state.ingredients} />
+                    <div style={{width: '60%', margin: 'auto'}}>
+                        <Burger ingredients={this.state.ingredients} />
+                    </div>
+                    
                     <BuildControls 
                     ingredientAdded={this.addIngredientHandler}
                     ingredientRemoved={this.removeIngredientHandler}
