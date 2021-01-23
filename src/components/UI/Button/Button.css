@@ -18,7 +18,10 @@
 
 .Button:hover{
     opacity: 0.8;
-    
+}
+.Button:disabled{
+    color:#ccc;
+    cursor:not-allowed;
 }
 
 .Success {
