@@ -2,6 +2,7 @@
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
+    text-align: left;
 
 }
 
@@ -25,4 +26,17 @@
 .InputElement:focus{
     outline: none;
     background-color: #ccc;
+}
+
+.Invalid{
+    border: 1px solid red;
+    background-color: salmon;
+}
+
+.ValidLine{
+    color: green;
+}
+
+.InValidLine{
+    color:red;
 }

@@ -4,25 +4,36 @@ import classes from './Input.css';
 
 const input = (props) =>{
     let inputElement = null;
+    const inputClasses = [classes.InputElement];
+    let statusSpan = null;
+    if(props.invalid && props.shouldValidate && props.touched){
+        inputClasses.push(classes.Invalid);
+        statusSpan = <span className={classes.InValidLine}>Invalid {props.inputName}</span>
+    }
+    if(!props.invalid && props.shouldValidate && props.touched){
+        statusSpan = <span className={classes.ValidLine}>Valid {props.inputName}</span>
+    }
+
+
 
     switch(props.elementType){
         case('input'):
             inputElement = <input 
                               {...props.elementConfig} 
-                              className={classes.InputElement}
+                              className={inputClasses.join(' ')}
                               onChange={props.changed} 
                               value={props.value}/>;
             break;
         case('textarea'):
             inputElement = <textarea 
                               {...props.elementConfig} 
-                              className={classes.InputElement} 
+                              className={inputClasses.join(' ')} 
                               onChange={props.changed}
                               value={props.value}/>;
             break;
         case('select'):
             inputElement = (<select 
-                              className={classes.InputElement}
+                              className={inputClasses.join(' ')}
                               onChange={props.changed}>
                               {props.elementConfig.options.map(option =>{
                                   return <option 
@@ -36,7 +47,7 @@ const input = (props) =>{
         default:
             inputElement = <input 
                               {...props.elementConfig} 
-                              className={classes.InputElement}
+                              className={inputClasses.join(' ')}
                               onChange={props.changed} 
                               value={props.value}/>;
     }
@@ -44,6 +55,7 @@ const input = (props) =>{
         <div className={classes.Input}>
             <label className={classes.Label}>{props.label}</label>
             {inputElement}
+            {statusSpan}
         </div>
     );
 }
