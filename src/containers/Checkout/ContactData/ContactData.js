@@ -5,7 +5,7 @@ import Spinner from '..//..//../components/UI/Spinner/Spinner';
 import Button from '../../../components/UI/Button/Button';
 import classes from './ContactData.css';
 import Input from '../../../components/UI/Input/Input';
-import withErrorHandler from '../../../hoc/Auxiliary/Auxiliary';
+import withErrorHandler from '../../../hoc/withErrorHandler/withErrorHandler';
 import * as actions from '../../../store/actions/index';
 
 
@@ -191,12 +191,12 @@ const mapStateTopProps = state =>{
         price: state.totalPrice,
         loading: state.loading
     } 
-}
+};
 
 const mapDispatchTopProps = dispatch => {
     return {
         onOrderBurger: (orderData) => dispatch(actions.purchaseBurger(orderData))
     };
-}
+};
 
 export default connect(mapStateTopProps, mapDispatchTopProps) (withErrorHandler(ContactData, axios));
