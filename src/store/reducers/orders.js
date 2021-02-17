@@ -2,7 +2,8 @@ import * as actionTypes from '../actions/actionsTypes';
 
 const initialState = {
     orders: [],
-    loading: false
+    loading: false,
+    redirect: false
 }
 
 const reducer = (state = initialState, action) =>{
@@ -17,18 +18,25 @@ const reducer = (state = initialState, action) =>{
         case actionTypes.PURCHASE_BURGER_SUCCESS:
             const newOrder = {
                 ...action.orderData,
-                id: action.id
+                id: action.id,
+                redirect:true
             };
             return {
                 ...state,
                 orders: state.orders.concat(action.orderData),
-                loading: false
+                loading: false,
+                redirect:true
             }
 
         case actionTypes.PURCHASE_BURGER_FAIL:
             return {
                 ...state,
                 loading: false
+            }
+        case actionTypes.ORDER_REDIRECTION:
+            return {
+                ...state,
+                redirect: false
             }
         default:
             return state;

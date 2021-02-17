@@ -22,18 +22,25 @@ export const purchaseBurgerStart = () => {
       type: actionTypes.PURCHASE_ORDER_START
   }  
 }
+export const resetRedirection = () => {
+  return {
+      type: actionTypes.ORDER_REDIRECTION
+  }  
+}
 
 export const purchaseBurger = (orderData) => {
     return dispatch => {
         dispatch(purchaseBurgerStart());
         axios.post('orders.json', orderData)
         .then(response => {
-            dispatch( purchaseBurgerSuccess(response.data,orderData) );
-            console.log(response)
+            dispatch( purchaseBurgerSuccess(response.data.name,orderData) );
+            console.log(response);
+
         })
         .catch(error => {
             dispatch( purchaseBurgerFail(error) );
-            console.log(error)
+            console.log(error);
+
         });
     }
 }

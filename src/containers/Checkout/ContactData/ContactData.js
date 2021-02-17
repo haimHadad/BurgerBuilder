@@ -7,6 +7,7 @@ import classes from './ContactData.css';
 import Input from '../../../components/UI/Input/Input';
 import withErrorHandler from '../../../hoc/withErrorHandler/withErrorHandler';
 import * as actions from '../../../store/actions/index';
+import {Redirect} from 'react-router-dom';
 
 
 class ContactData extends Component{
@@ -108,9 +109,7 @@ class ContactData extends Component{
             price: price.toFixed(2),
             orderData: formData
         }
-        this.props.onOrderBurger(order);
-        
-         
+        this.props.onOrderBurger(order);         
 
     }
 
@@ -176,6 +175,10 @@ class ContactData extends Component{
         if(this.props.loading){
             form = <Spinner/>
         }
+        if(this.props.redirect){
+            form = <Redirect to="/"/>
+            this.props.onResetRedirection()
+        }
         return (
             <div className={classes.ContactData}>
                 <h4>Enter Your Contact Data</h4>
@@ -187,15 +190,17 @@ class ContactData extends Component{
 
 const mapStateTopProps = state =>{
     return {
-        ings: state.ingredients,
-        price: state.totalPrice,
-        loading: state.loading
+        ings: state.burgerBuilder.ingredients,
+        price: state.burgerBuilder.totalPrice,
+        loading: state.order.loading,
+        redirect: state.order.redirect
     } 
 };
 
 const mapDispatchTopProps = dispatch => {
     return {
-        onOrderBurger: (orderData) => dispatch(actions.purchaseBurger(orderData))
+        onOrderBurger: (orderData) => dispatch(actions.purchaseBurger(orderData)),
+        onResetRedirection: ()=> dispatch(actions.resetRedirection())
     };
 };
 
