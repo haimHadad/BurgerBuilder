@@ -22,9 +22,9 @@ export const purchaseBurgerStart = () => {
       type: actionTypes.PURCHASE_ORDER_START
   }  
 }
-export const resetRedirection = () => {
+export const purchaseInit = () => {
   return {
-      type: actionTypes.ORDER_REDIRECTION
+      type: actionTypes.PURCHASE_INIT
   }  
 }
 

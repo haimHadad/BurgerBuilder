@@ -175,10 +175,7 @@ class ContactData extends Component{
         if(this.props.loading){
             form = <Spinner/>
         }
-        if(this.props.redirect){
-            form = <Redirect to="/"/>
-            this.props.onResetRedirection()
-        }
+        
         return (
             <div className={classes.ContactData}>
                 <h4>Enter Your Contact Data</h4>
@@ -191,16 +188,13 @@ class ContactData extends Component{
 const mapStateTopProps = state =>{
     return {
         ings: state.burgerBuilder.ingredients,
-        price: state.burgerBuilder.totalPrice,
-        loading: state.order.loading,
-        redirect: state.order.redirect
+        price: state.burgerBuilder.totalPrice
     } 
 };
 
 const mapDispatchTopProps = dispatch => {
     return {
-        onOrderBurger: (orderData) => dispatch(actions.purchaseBurger(orderData)),
-        onResetRedirection: ()=> dispatch(actions.resetRedirection())
+        onOrderBurger: (orderData) => dispatch(actions.purchaseBurger(orderData))
     };
 };
 

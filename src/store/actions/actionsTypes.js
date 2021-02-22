@@ -8,5 +8,5 @@ export const PURCHASE_ORDER_START = 'Purchase Order Start';
 export const PURCHASE_ORDER_END = 'Purchase Order End';
 export const PURCHASE_BURGER_SUCCESS = 'Purchase Burger Success';
 export const PURCHASE_BURGER_FAIL = 'Purchase Burger Fail';
-export const ORDER_REDIRECTION = 'Reset redirection';
+export const PURCHASE_INIT = 'Purchase Init';
 

@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import axios from '../../axios-orders';
 
-import * as burgerBuilderActions from '../../store/actions/index';
 import Aux from '../../hoc/Auxiliary/Auxiliary';
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
@@ -10,6 +9,7 @@ import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
+import * as actions from '../../store/actions/index';
 
 
 
@@ -20,7 +20,9 @@ class BurgerBuilder extends Component{
 
     componentDidMount(){
         this.props.onInitIngredient();
+        this.props.onInitPurchase();
     }
+
 
     updatePurchaseState(ingredients){ 
        /* const sum = Object.values(ingredients).reduce((a, b) => a + b, 0); */
@@ -44,6 +46,7 @@ class BurgerBuilder extends Component{
     }
 
     purchaseContinueHandler = () =>{
+        this.props.onInitPurchase();
         this.props.history.push('/checkout');
     }
 
@@ -103,9 +106,10 @@ const mapStateToProps = (state ) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        onIngredientAdded:(ingName) => dispatch(burgerBuilderActions.addIngrediet(ingName)),
-        onIngredientRemoved:(ingName) => dispatch(burgerBuilderActions.removeIngrediet(ingName)),
-        onInitIngredient: ()=> dispatch(burgerBuilderActions.initIngredient())
+        onIngredientAdded:(ingName) => dispatch(actions.addIngrediet(ingName)),
+        onIngredientRemoved:(ingName) => dispatch(actions.removeIngrediet(ingName)),
+        onInitIngredient: ()=> dispatch(actions.initIngredient()),
+        onInitPurchase: ()=> dispatch(actions.purchaseInit())
 
     }
 } 

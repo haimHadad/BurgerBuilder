@@ -5,5 +5,5 @@ export {
 } from './burgerBuilder';
 export {
     purchaseBurger,
-    resetRedirection
+    purchaseInit
 } from './order';
