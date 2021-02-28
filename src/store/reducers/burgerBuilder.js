@@ -14,7 +14,7 @@ const InitialState = {
     error: false
 }
 
-const reducer = (state = InitialState, action) => {
+const reducer = (state = InitialState, action) => { 
 
     switch(action.type){
         case actionTypes.ADD_INGREDIENT:
@@ -45,6 +45,7 @@ const reducer = (state = InitialState, action) => {
                     cheese: action.ingredients.cheese,
                     meat: action.ingredients.meat
                 },
+                totalPrice:4,
                 error: false
             };
 
