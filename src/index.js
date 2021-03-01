@@ -9,7 +9,7 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import burgerBuilderReducer from './store/reducers/burgerBuilder';
-import orderReducer from './store/reducers/orders';
+import orderReducer from './store/reducers/order';
 
 const logger = store => {
     return next =>{
