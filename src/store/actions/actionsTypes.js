@@ -14,3 +14,6 @@ export const FETCH_ORDERS_START = 'Fetch Orders Start';
 export const FETCH_ORDERS_SUCCESS = 'Fetch Orders Success';
 export const FETCH_ORDERS_FAIL = 'Fetch Orders Failed';
 
+export const AUTH_START = 'Auth Start';
+export const AUTH_SUCCESS = 'Auth Success';
+export const AUTH_FAIL = 'Auth Fail';
