@@ -13,3 +13,10 @@
         width: 500px;
     }
 }
+
+.error{
+    color: red;
+    font-weight: 500;
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 3px darkred;
+}

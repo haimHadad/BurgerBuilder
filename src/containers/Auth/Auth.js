@@ -124,7 +124,8 @@ class Auth extends Component{
 
         let errorMessage = null;
         if(this.props.error){
-            errorMessage = <p>{this.props.error.message}</p>;
+            let errorMsg = this.props.error.message.split('_').join(' ');
+            errorMessage = <p className={classses.error}>{errorMsg}</p>;
         }
 
         return (
