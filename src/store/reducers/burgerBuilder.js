@@ -1,5 +1,6 @@
 import * as actionTypes from '../actions/actionsTypes';
-import {updatedObject} from '../utility';
+import {updateObject} from '../../shared/utility';
+
 
 const INGREDIENT_PRICES = {
     salad: 0.5,
@@ -16,29 +17,29 @@ const InitialState = {
 
 const addIngredient = (state, action) =>{
     const updatedIngredient = {[action.ingredientName]: state.ingredients[action.ingredientName] + 1}
-    const updatedIngredients = updatedObject(state.ingredients, updatedIngredient);
+    const updatedIngredients = updateObject(state.ingredients, updatedIngredient);
     const updatedState = {
         ingredients: updatedIngredients,
         totalPrice: state.totalPrice + INGREDIENT_PRICES[action.ingredientName],
         building: true
     }
-    return updatedObject(state, updatedState);
+    return updateObject(state, updatedState);
 
 }
 
 const removeIngredient = (state, action) =>{
     const updatedIng = {[action.ingredientName]: state.ingredients[action.ingredientName] - 1}
-    const updatedIngs = updatedObject(state.ingredients, updatedIng);
+    const updatedIngs = updateObject(state.ingredients, updatedIng);
     const updatedSt = {
         ingredients: updatedIngs,
         totalPrice: state.totalPrice - INGREDIENT_PRICES[action.ingredientName],
         building: true
     }
-    return updatedObject(state, updatedSt);
+    return updateObject(state, updatedSt);
 }
 
 const setIngredient = (state, action) =>{
-    return updatedObject(state, {
+    return updateObject(state, {
         ingredients: {
             salad: action.ingredients.salad,
             bacon: action.ingredients.bacon,
@@ -52,7 +53,7 @@ const setIngredient = (state, action) =>{
 }
 
 const fetchIngredientFailed = (state, action) => {
-    return updatedObject(state, {error: true});
+    return updateObject(state, {error: true});
 }
 
 const reducer = (state = InitialState, action) => { 

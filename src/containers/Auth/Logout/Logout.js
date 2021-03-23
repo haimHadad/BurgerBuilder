@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import classes from './Logout.css';
-import {connect} from 'react-redux';
+/* import classes from './Logout.css';
+ */import {connect} from 'react-redux';
 import * as actions from '../../../store/actions/index';
 import { Redirect } from 'react-router-dom';
 

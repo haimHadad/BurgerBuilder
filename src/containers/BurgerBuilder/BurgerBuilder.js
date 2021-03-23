@@ -66,7 +66,7 @@ class BurgerBuilder extends Component{
         if(this.props.ings){
             burger = (
                 <Aux>
-                    <div style={{width: '60%', margin: 'auto'}}>
+                    <div >
                         <Burger ingredients={this.props.ings} />
                     </div>
                     
