@@ -1,7 +1,7 @@
-/* .Burger {
-    width: 75%;
+.Burger {
+    /* width: 75%; */
     margin: auto;
-    height: 350px;
+    height: 250px;
     overflow: auto;
     text-align: center;
     font-weight: bold;
@@ -11,22 +11,24 @@
 
 @media((min-width: 499px) and (min-height: 400) ){
     .Burger{
+        width: 40%;
+        height: 350px;
     }
 }
 @media(min-width: 699px) and (min-height: 401px){
     .Burger{
-        
-        height: 350px;
+        width: 50%;
+        height: 400px;
     }
 }
 @media(min-width: 1000px) and (min-height: 700px){
     .Burger{
-        width: 45%;
-        height: 350px;
+        width: 50%;
+        height: 450px;
     }
-} */
+}
 
-.Burger {
+/* .Burger {
     width: 100%;
     margin: auto;
     height: 250px;
@@ -55,4 +57,4 @@
         width: 700px;
         height: 350px;
     }
-}
+} */
