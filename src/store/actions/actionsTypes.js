@@ -14,9 +14,12 @@ export const FETCH_ORDERS_START = 'Fetch Orders Start';
 export const FETCH_ORDERS_SUCCESS = 'Fetch Orders Success';
 export const FETCH_ORDERS_FAIL = 'Fetch Orders Failed';
 
+export const AUTH_USER = 'Auth User';
 export const AUTH_START = 'Auth Start';
 export const AUTH_SUCCESS = 'Auth Success';
 export const AUTH_FAIL = 'Auth Fail';
+export const AUTH_CHECK_TIMEOUT = 'Auth Check Timeout';
+export const AUTH_INITIATE_LOGOUT = 'Auth Initiate Logout';
 export const AUTH_LOGOUT = 'Auth Logout';
 
 export const SET_AUTH_REDIRECT_PATH = 'Set Auth Redirect Path';
