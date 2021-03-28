@@ -2,6 +2,7 @@
 export const ADD_INGREDIENT = 'Add Ingredient';
 export const REMOVE_INGREDIENT = 'Remove Ingredient';
 export const SET_INGREDIENT = 'Set Ingredient';
+export const INIT_INGREDIENTS = 'Init Ingredients';
 export const FETCH_INGREDIENT_FAILED = 'Fetch Ingredient Failed';
 
 export const PURCHASE_BURGER_START = 'Purchase Burger Start';
@@ -14,6 +15,7 @@ export const FETCH_ORDERS_START = 'Fetch Orders Start';
 export const FETCH_ORDERS_SUCCESS = 'Fetch Orders Success';
 export const FETCH_ORDERS_FAIL = 'Fetch Orders Failed';
 
+export const AUTH_CHECK_STATE = 'Auth Check State';
 export const AUTH_USER = 'Auth User';
 export const AUTH_START = 'Auth Start';
 export const AUTH_SUCCESS = 'Auth Success';
