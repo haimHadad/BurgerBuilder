@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {connect} from 'react-redux';
+import {connect, useDispatch, useSelector} from 'react-redux';
 import axios from '../../axios-orders';
 
 import Aux from '../../hoc/Auxiliary/Auxiliary';
@@ -17,13 +17,14 @@ const burgerBuilder = props => {
     
     const [purchasing, setPurchasing] = useState(false);
 
+    const {onInitIngredient, onInitPurchase} = props;
+
     useEffect(() => {
-        props.onInitIngredient();
-        props.onInitPurchase();
-    },[]);
+        onInitIngredient();
+        onInitPurchase();
+    },[onInitIngredient, onInitPurchase]);
 
     const updatePurchaseState = ingredients => { 
-       /* const sum = Object.values(ingredients).reduce((a, b) => a + b, 0); */
        const sum = Object.keys(ingredients)
         .map(igKey=>{
             return ingredients[igKey];

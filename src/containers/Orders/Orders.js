@@ -9,9 +9,11 @@ import {connect} from 'react-redux';
 
 const orders = props => {
  
+    const {onFetchOrders} = props;
+
     useEffect( () => {
-        props.onFetchOrders(props.token, props.userId);
-    },[])
+        onFetchOrders(props.token, props.userId);
+    },[onFetchOrders])
 
     
         let orders = <Spinner/>;
