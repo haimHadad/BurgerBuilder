@@ -45,12 +45,98 @@
     color: white;
 }
 
-.BuildControl .Less:hover, .BuildControl .Less:active {  
+.BuildControl .Less:hover:enabled{  
     background-color: #DAA972;
     color: white;
+    animation: leftLessHover 0.3s linear;
 }
 
-.BuildControl .More:hover,.BuildControl .More:active {
+.BuildControl .Less:active:enabled{  
+    animation: leftLessClick 0.3s linear;
+}
+
+
+.BuildControl .More:hover{
     background-color: #99703F;
     color: white;
+    animation: rightMoreHover 0.3s linear;
 }
+
+.BuildControl .More:active{
+    animation: rightMoreClick 0.3s linear;
+}
+
+
+@keyframes rightMoreHover {
+    0% {
+        transform:translateX(0);
+    }
+    25% {
+        transform: translateX(10px);
+    }
+    50% {
+        transform: translateX(20px);
+    }
+    75% {
+        transform: translateX(10px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+@keyframes rightMoreClick {
+    0% {
+        transform:translateX(0);
+    }
+    25% {
+        transform: translateX(10px);
+    }
+    50% {
+        transform: translateX(20px);
+    }
+    75% {
+        transform: translateX(10px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+
+@keyframes leftLessHover {
+    0% {
+        transform:translateX(0);
+    }
+    25% {
+        transform: translateX(-10px);
+    }
+    50% {
+        transform: translateX(-20px);
+    }
+    75% {
+        transform: translateX(-10px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+@keyframes leftLessClick {
+    0% {
+        transform:translateX(0);
+    }
+    25% {
+        transform: translateX(-10px);
+    }
+    50% {
+        transform: translateX(-20px);
+    }
+    75% {
+        transform: translateX(-10px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+

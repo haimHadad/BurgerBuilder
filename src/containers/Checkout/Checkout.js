@@ -9,7 +9,8 @@ class Checkout extends Component{
 
     checkoutContinuedHandler = () => {
         this.props.history.replace('/checkout/contact-data');
-    }
+        var elmnt = document.getElementById("myDiv");
+        elmnt.scrollIntoView();    }
 
     checkOutCancelledHandler = () => {
         this.props.history.goBack();
@@ -21,13 +22,13 @@ class Checkout extends Component{
         if(this.props.ings){
             const purchasedRedirect = this.props.purchased ? <Redirect to="/"/> : null;
             summary = (
-                <div>
+                <div id="myDiv">
                     {purchasedRedirect}
                     <CheckoutSummary 
                     onCheckoutContinued={this.checkoutContinuedHandler}
                     onCheckOutCancelled={this.checkOutCancelledHandler} 
                     ingredients ={this.props.ings}/>
-                    <Route 
+                    <Route
                     path={this.props.match.path + '/contact-data'} 
                     component={ContactData}/>
                 </div>

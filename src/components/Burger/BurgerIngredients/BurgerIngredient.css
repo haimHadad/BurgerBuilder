@@ -87,6 +87,7 @@
     background: linear-gradient(#7f3608, #702e05);
     margin: 2% auto;
     border-radius: 15px;
+    animation: showBaconOrMeat 0.5s ease-out;
 }
 
 .Cheese {
@@ -95,6 +96,7 @@
     margin: 2% auto;
     background: linear-gradient(#f4d004, #d6bb22);
     border-radius: 20px;
+    animation: showCheeseOrSalad 0.5s ease-out;
 }
 
 .Salad {
@@ -103,6 +105,7 @@
     margin: 2% auto;
     background: linear-gradient(#228c1d, #91ce50);
     border-radius: 20px;
+    animation: showCheeseOrSalad 0.5s ease-out;
 }
 
 .Bacon {
@@ -110,4 +113,85 @@
     height: 3%;
     background: linear-gradient(#bf3813, #c45e38);
     margin: 2% auto;
+    animation: showBaconOrMeat 0.5s ease-out;
+
+}
+
+.removeBaconMeat{
+  animation: removeBaconOrMeat 0.5s ease-in;
+}
+
+
+
+@keyframes showBaconOrMeat {
+    0% {
+        transform: translateX(100%);
+    }
+    20% {
+        transform: translateX(75%);
+    }
+    40% {
+        transform: translateX(50%);
+    }
+    60% {
+        transform: translateX(25%);
+    }
+    80% {
+        transform: translateX(-50%);
+    }
+    90% {
+        transform: translateX(-25%);
+    }
+    100% {
+        transform: translateX(0px);
+    }  
+}
+
+@keyframes removeBaconOrMeat { 
+0% {
+      transform: translateX(0px);
+} 
+20% {
+    transform: translateX(-25%);
+}
+40% {
+  transform: translateX(-50%);
+}
+60% {
+  transform: translateX(25%);
+}
+80% {
+  transform: translateX(50%);
+}
+90% {
+  transform: translateX(75%);
+}
+100% {
+  transform: translateX(100%);
+}
+}
+
+
+@keyframes showCheeseOrSalad {
+    0% {
+        transform: translateX(-100%);
+    }
+    20% {
+        transform: translateX(-75%);
+    }
+    40% {
+        transform: translateX(-50%);
+    }
+    60% {
+        transform: translateX(-25%);
+    }
+    80% {
+        transform: translateX(50%);
+    }
+    90% {
+        transform: translateX(25%);
+    }
+    100% {
+        transform: translateX(0px);
+    }  
 }
